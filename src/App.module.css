@@ -1,0 +1,63 @@
+.layout {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.navBtn {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.15s;
+}
+
+.navBtn:hover {
+  border-color: var(--muted);
+  color: var(--text);
+}
+
+.navBtnActive {
+  composes: navBtn;
+  background: var(--accent);
+  color: #0a0a0a;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.main {
+  /* the views handle their own padding */
+}

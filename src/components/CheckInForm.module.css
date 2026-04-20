@@ -1,0 +1,140 @@
+.section {
+  margin-bottom: 28px;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.dayGrid {
+  display: flex;
+  gap: 6px;
+}
+
+.dayBtn {
+  flex: 1;
+  padding: 10px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  transition: all 0.12s;
+}
+
+.dayBtn:hover {
+  border-color: var(--muted);
+  color: var(--text);
+}
+
+.dayBtnOn {
+  composes: dayBtn;
+  background: var(--accent);
+  color: #0a0a0a;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.dayCount {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 8px 0 28px;
+}
+
+.sliderRow {
+  margin-bottom: 28px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.sliderVal {
+  font-size: 20px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.sliderTicks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 10px;
+}
+
+.textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 12px 14px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.textarea:focus {
+  border-color: var(--accent);
+}
+
+.textarea::placeholder {
+  color: var(--border);
+}
+
+.error {
+  color: #fb7185;
+  font-size: 13px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: rgba(251, 113, 133, 0.1);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(251, 113, 133, 0.2);
+}
+
+.saveBtn {
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: #0a0a0a;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.saveBtn:hover {
+  opacity: 0.9;
+}
+
+.saveBtn:active {
+  transform: scale(0.99);
+}
+
+.saveBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
