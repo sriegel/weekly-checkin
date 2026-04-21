@@ -61,3 +61,21 @@
 .main {
   /* the views handle their own padding */
 }
+
+.signOutBtn {
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.15s;
+  margin-left: 8px;
+}
+
+.signOutBtn:hover {
+  border-color: #fb7185;
+  color: #fb7185;
+}

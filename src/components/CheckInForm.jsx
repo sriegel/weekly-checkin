@@ -4,7 +4,6 @@ import styles from './CheckInForm.module.css'
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
-// Label arrays: index 0 unused, 1–5 are the slider values
 const LABELS = {
   mood:     ['', 'Rough', 'Low', 'Okay', 'Good', 'Great'],
   sleep:    ['', 'Terrible', 'Poor', 'Okay', 'Good', 'Excellent'],
@@ -12,7 +11,6 @@ const LABELS = {
   stress:   ['', 'Overwhelmed', 'High', 'Moderate', 'Low', 'Calm'],
 }
 
-// Color per metric — used for the slider value label
 const COLORS = {
   mood: 'var(--blue)',
   sleep: 'var(--purple)',
@@ -26,10 +24,8 @@ function getWeekOf() {
   const diff = now.getDate() - day + (day === 0 ? -6 : 1)
   const monday = new Date(now)
   monday.setDate(diff)
-  return monday.toISOString().split('T')[0] // "2025-04-14"
+  return monday.toISOString().split('T')[0]
 }
-
-// --- Sub-components ---
 
 function DayPicker({ value, onChange }) {
   function toggle(day) {
@@ -81,9 +77,7 @@ function SliderInput({ metricKey, label, value, onChange }) {
   )
 }
 
-// --- Main form ---
-
-export default function CheckInForm({ onSaved }) {
+export default function CheckInForm({ onSaved, userId }) {
   const [exerciseDays, setExerciseDays] = useState([])
   const [mood, setMood] = useState(3)
   const [sleep, setSleep] = useState(3)
@@ -98,11 +92,10 @@ export default function CheckInForm({ onSaved }) {
     setSaving(true)
     setError(null)
 
-    // This is the Supabase insert call.
-    // It maps directly to the columns in your `checkins` table.
     const { error: dbError } = await supabase.from('checkins').insert({
-      week_of: getWeekOf(),         // date of that Monday
-      exercise_days: exerciseDays,  // stored as a Postgres text[] array
+      user_id: userId,          // attach to the logged-in user
+      week_of: getWeekOf(),
+      exercise_days: exerciseDays,
       exercise_count: exerciseDays.length,
       mood,
       sleep_quality: sleep,
